@@ -1,6 +1,7 @@
 package com.nhatnguyenba.habit.di
 
 import android.content.Context
+import androidx.work.WorkManager
 import com.nhatnguyenba.habit.data.local.AppDatabase
 import com.nhatnguyenba.habit.data.local.dao.HabitDao
 import com.nhatnguyenba.habit.data.mapper.HabitMapper
@@ -30,4 +31,9 @@ object AppModule {
     @Singleton
     fun provideHabitRepository(dao: HabitDao): HabitRepository =
         HabitRepositoryImpl(dao, HabitMapper())
+
+    @Provides
+    @Singleton
+    fun provideWorkManager(@ApplicationContext context: Context): WorkManager =
+        WorkManager.getInstance(context)
 }

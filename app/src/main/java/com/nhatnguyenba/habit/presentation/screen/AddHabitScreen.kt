@@ -138,6 +138,7 @@ fun AddHabitScreen(
                         isDaily = isDaily
                     )
                     viewModel.addHabit(newHabit)
+                    viewModel.scheduleReminder(newHabit)
                     navController.popBackStack()
                 },
                 modifier = Modifier.fillMaxWidth(),
